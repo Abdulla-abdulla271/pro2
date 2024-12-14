@@ -1,0 +1,100 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  perspective: 1000px; /* Add perspective for 3D effects */
+  overflow: hidden; /* Hide overflow for animation */
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+.options {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05) rotateY(10deg); /* Add 3D rotation */
+}
+
+#result {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  transition: transform 0.5s ease; /* Add transition for 3D effect */
+}
+
+.heart {
+  font-size: 3em;
+  animation: bounce 2s infinite;
+}
+
+img {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s ease; /* Add transition for 3D effect */
+}
+
+img:hover {
+  transform: rotateY(180deg); /* Add 3D rotation on hover */
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+.highlight {
+  transform: scale(1.2) rotateY(360deg); /* Add 3D rotation */
+}
+
+/* 3D animated background */
+@keyframes animateBackground {
+  0% {
+    transform: translateZ(-1000px) rotateY(0deg);
+  }
+  100% {
+    transform: translateZ(-1000px) rotateY(360deg);
+  }
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, #ff6b6b, #f0e130, #1dd1a1, #54a0ff);
+  background-size: 400% 400%;
+  animation: animateBackground 20s linear infinite;
+  z-index: -1;
+}
